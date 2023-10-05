@@ -1,4 +1,4 @@
-
+import java.util.Scanner; 
 /**
  * War game class
  *
@@ -14,9 +14,11 @@ public class War
      */
     public War()
     {
-        // Initializations here...
-        
-        
+        // Initializations her
+        boolean playing;
+        while (playing = true) {
+            
+        }
         // ...then run the event loop
         this.runEventLoop();
     }
