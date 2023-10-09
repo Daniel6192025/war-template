@@ -19,7 +19,7 @@ public class Deck
     {
         cards = new ArrayList<Card>();
     }
-    
+
     public void initializeNewDeck() {
         String[] suits = {"Hearts","Clubs","Spades","Diamonds"};
         int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
@@ -40,7 +40,7 @@ public class Deck
     public int getDeckSize() {
         return cards.size();
     }
-    
+
     /**
      * Shuffles the cards in the deck
      */
@@ -48,7 +48,7 @@ public class Deck
         // To be written
         Collections.shuffle(cards);
     }
-    
+
     /**
      * Deal all the cards in the deck to make two new decks of cards
      * 
@@ -65,22 +65,31 @@ public class Deck
         }
         return halves;
     }
-    
+
     /**
      * Deal the top card of the deck and remove it from the deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        // To be written 
-        
-        for (int i = 0; i < cards.size(); i++) {
-            if (i == this.cards.get(0)) {
-                
+        // To be written
+        String[] suits = {"Hearts","Clubs","Spades","Diamonds"};
+        int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+        String[] faces = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
+        for (String suit : suits) {
+            for (int idx=0; idx<ranks.length; idx++) {
+                Card c = new Card(ranks[idx], faces[idx], suit);
+                this.cards.add(c);
+                if (c == cards.get(0)) {
+                    Card dealtCard = c;
+                    cards.remove(0);
+                    return dealtCard;
+                }
             }
         }
+
         return null;
     }
-    
+
     /**
      * Adds the provided card to the deck
      * @param cardToAdd: Card to add to this deck
@@ -88,5 +97,5 @@ public class Deck
     public void addCardToDeck(Card cardToAdd) {
         // To be written
     }
-    
+
 }
