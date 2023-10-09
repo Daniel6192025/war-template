@@ -80,8 +80,7 @@ public class Deck
                 Card c = new Card(ranks[idx], faces[idx], suit);
                 this.cards.add(c);
                 if (c == cards.get(0)) {
-                    Card dealtCard = c;
-                    cards.remove(0);
+                    Card dealtCard = cards.get(0);
                     return dealtCard;
                 }
             }
