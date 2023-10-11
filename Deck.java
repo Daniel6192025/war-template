@@ -77,7 +77,7 @@ public class Deck
         String[] faces = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
         for (String suit : suits) {
 
-            for (int i = 0; i < cards.size(); i++) {
+            for (int i = 0; i < ranks.length; i++) {
                 Card dealtCard = new Card(ranks[i], faces[i], suit);
                 if (dealtCard == cards.get(0)) {
                     cards.remove(0);
@@ -95,7 +95,7 @@ public class Deck
              */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
-
+        cards.add(cardToAdd);
     }
 
 }
