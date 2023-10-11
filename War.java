@@ -15,10 +15,7 @@ public class War
     public War()
     {
         // Initializations her
-        boolean playing;
-        while (playing = true) {
-            
-        }
+        
         // ...then run the event loop
         this.runEventLoop();
     }
@@ -28,7 +25,10 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
-
+        boolean playing;
+        while (playing = true) {
+            
+        }
     }
     
     /**
