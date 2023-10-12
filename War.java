@@ -14,7 +14,14 @@ public class War
      */
     public War()
     {
-        // Initializations her
+        // Initializations here
+        
+        Deck deck = new Deck();
+        deck.initializeNewDeck();
+        deck.getDeckSize();
+        deck.shuffle();
+        deck.dealDeck();
+        deck.dealCardFromDeck();
         
         // ...then run the event loop
         this.runEventLoop();
