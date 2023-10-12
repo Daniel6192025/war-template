@@ -33,8 +33,11 @@ public class War
      */
     public void runEventLoop() {
         boolean playing;
+        Scanner users = new Scanner(System.in);
         while (playing = true) {
-            
+            String playerOne = users.nextLine();
+            String playerTwo = users.nextLine();
+            System.out.println("Welcome " + playerOne + (" ") + playerTwo + ("!"));
         }
     }
     
