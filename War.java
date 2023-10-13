@@ -15,18 +15,12 @@ public class War
     public War()
     {
         // Initializations here
-        
-        Deck deck = new Deck();
-        deck.initializeNewDeck();
-        deck.getDeckSize();
-        deck.shuffle();
-        deck.dealDeck();
-        deck.dealCardFromDeck();
+
         
         // ...then run the event loop
         this.runEventLoop();
     }
-    
+
     /**
      * This is the game's event loop. The code in here should come
      * from the War flowchart you created for this game
@@ -34,13 +28,19 @@ public class War
     public void runEventLoop() {
         boolean playing;
         Scanner users = new Scanner(System.in);
+        System.out.println("Please Enter Your Names");
+        String playerOne = users.nextLine();
+        String playerTwo = users.nextLine();
+        System.out.println("Welcome " + playerOne + (" and ") + playerTwo + ("!"));
         while (playing = true) {
-            String playerOne = users.nextLine();
-            String playerTwo = users.nextLine();
-            System.out.println("Welcome " + playerOne + (" ") + playerTwo + ("!"));
+            Deck deck = new Deck();
+            deck.initializeNewDeck();
+            deck.shuffle();
+            deck.dealDeck();
+            
         }
     }
-    
+
     /**
      * The main method is called when Java starts your program
      */
