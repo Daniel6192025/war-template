@@ -15,7 +15,13 @@ public class War
     public War()
     {
         // Initializations here
-
+        Deck deck = new Deck();
+        deck.initializeNewDeck();
+        deck.shuffle();
+        Deck[] playerDeck = deck.dealDeck();
+        Deck playerOneDeck = playerDeck[0];
+        Deck playerTwoDeck = playerDeck[1];
+        
         
         // ...then run the event loop
         this.runEventLoop();
@@ -25,7 +31,7 @@ public class War
      * This is the game's event loop. The code in here should come
      * from the War flowchart you created for this game
      */
-    public void runEventLoop() {
+    public void runEventLoop(Deck playerOneDeck, Deck playerTwoDeck) {
         boolean playing;
         Scanner users = new Scanner(System.in);
         System.out.println("Please Enter Your Names");
@@ -33,10 +39,9 @@ public class War
         String playerTwo = users.nextLine();
         System.out.println("Welcome " + playerOne + (" and ") + playerTwo + ("!"));
         while (playing = true) {
-            Deck deck = new Deck();
-            deck.initializeNewDeck();
-            deck.shuffle();
-            deck.dealDeck();
+            if (playerOneDeck.getDeckSize() == 0) {
+                
+            }
             
         }
     }
