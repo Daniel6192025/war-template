@@ -76,15 +76,11 @@ public class Deck
         int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
         String[] faces = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
         for (String suit : suits) {
-
-            for (int i = 0; i < ranks.length; i++) {
-                Card dealtCard = new Card(ranks[i], faces[i], suit);
-                if (dealtCard == cards.get(0)) {
-                    cards.remove(0);
-                    return cards.get(0);
-
-
-                }
+            for (int idx=0; idx<ranks.length; idx++) {
+                Card dealtCard = new Card(ranks[idx], faces[idx], suit);
+                dealtCard = cards.get(0);
+                cards.remove(0);
+                return dealtCard;
             }
         }
         return null;
@@ -95,6 +91,8 @@ public class Deck
              */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
+        Card dealtCard = dealCardFromDeck();
+        cardToAdd = dealtCard;
         cards.add(cardToAdd);
     }
 
