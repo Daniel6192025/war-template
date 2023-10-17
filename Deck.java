@@ -72,7 +72,7 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written
-<<<<<<< HEAD
+
         String[] suits = {"Hearts","Clubs","Spades","Diamonds"};
         int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
         String[] faces = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
@@ -85,11 +85,7 @@ public class Deck
             }
         }
         return null;
-=======
-        Card dealtCard = cards.get(0);
-        cards.remove(0);
-        return dealtCard;
->>>>>>> 9772c32a6705739adc144a2dd4fce4a9bc2d904d
+
     }
     /**
              * Adds the provided card to the deck
