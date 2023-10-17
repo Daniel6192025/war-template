@@ -19,11 +19,10 @@ public class War
         deck.initializeNewDeck();
         deck.shuffle();
         Deck[] playerDeck = deck.dealDeck();
-        Deck playerOneDeck = playerDeck[0];
-        Deck playerTwoDeck = playerDeck[1];
-
-        deck.dealCardFromDeck();
-        deck.addCardToDeck();
+        Deck playerOneDeck = new Deck();
+        Deck playerTwoDeck = new Deck();
+        playerOneDeck = playerDeck[0];
+        playerTwoDeck = playerDeck[1];
 
         
         // ...then run the event loop
@@ -36,6 +35,8 @@ public class War
      */
     public void runEventLoop(Deck playerOneDeck, Deck playerTwoDeck) {
         boolean playing;
+        Card playerOneCard = playerOneDeck.dealCardFromDeck();
+        Card playerTwoCard = playerTwoDeck.dealCardFromDeck();
         Scanner users = new Scanner(System.in);
         System.out.println("Please Enter Your Names");
         String playerOne = users.nextLine();
@@ -43,15 +44,23 @@ public class War
         System.out.println("Welcome " + playerOne + (" and ") + playerTwo + ("!"));
         while (playing = true) {
             if (playerOneDeck.getDeckSize() == 0) {
-
                 System.out.println(playerTwo + " has won!");
                 playing = false;
             } else if (playerOneDeck.getDeckSize() == 52) {
                 System.out.println(playerOne + " has won!");
                 playing = false;
             } else {
+                System.out.println("The game has begun!");
                 System.out.println(playerOne + " has dealt the " + playerOneDeck.dealCardFromDeck());
-                System.out.println(playerTwo + " has dealt the " + playerOneDeck.dealCardFromDeck());
+                System.out.println(playerTwo + " has dealt the " + playerTwoDeck.dealCardFromDeck());
+                if (playerOneCard.getRank() > playerTwoCard.getRank()) {
+                    playerOneDeck.addCardToDeck(playerOneCard);
+                    playerOneDeck.addCardToDeck(playerTwoCard);
+                    System.out.println(playerOne + " takes all cards!");
+                } else if (playerOneCard.getRank() == playerOneCard.getRank()){
+                    System.out.println("WAR!!!");
+                    playerOneDeck.dealCardFromDeck();
+                }
             }
 
                 
