@@ -72,25 +72,16 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written
-
-        String[] suits = {"Hearts","Clubs","Spades","Diamonds"};
-        int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
-        String[] faces = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
-        for (String suit : suits) {
-            for (int idx=0; idx<ranks.length; idx++) {
-                Card dealtCard = new Card(ranks[idx], faces[idx], suit);
-                dealtCard = cards.get(0);
-                cards.remove(0);
-                return dealtCard;
-            }
-        }
-        return null;
-
+        Card dealtCard;
+        dealtCard = cards.get(0);
+        cards.remove(0);
+        return dealtCard;
     }
+
     /**
-             * Adds the provided card to the deck
-             * @param cardToAdd: Card to add to this deck
-             */
+     * Adds the provided card to the deck
+     * @param cardToAdd: Card to add to this deck
+     */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
         Card dealtCard = dealCardFromDeck();
