@@ -1,4 +1,5 @@
 import java.util.Scanner; 
+import java.util.ArrayList;
 /**
  * War game class
  *
@@ -34,6 +35,7 @@ public class War
      */
     public void runEventLoop(Deck playerOneDeck, Deck playerTwoDeck) {
         boolean playing;
+        boolean war;
         Card playerOneCard = playerOneDeck.dealCardFromDeck();
         Card playerTwoCard = playerTwoDeck.dealCardFromDeck();
         Scanner users = new Scanner(System.in);
@@ -41,66 +43,82 @@ public class War
         String playerOne = users.nextLine();
         String playerTwo = users.nextLine();
         System.out.println("Welcome " + playerOne + (" and ") + playerTwo + ("!"));
+        System.out.println("The game has begun!");
+        System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+        System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
         while (playing = true) {
             if (playerOneDeck.getDeckSize() == 0) {
                 System.out.println(playerTwo + " has won!");
+                System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                 playing = false;
             } else if (playerOneDeck.getDeckSize() == 52) {
                 System.out.println(playerOne + " has won!");
+                System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                 playing = false;
             } else {
-                System.out.println("The game has begun!");
-                System.out.println(playerOne + " has dealt the " + playerOneDeck.dealCardFromDeck());
-                System.out.println(playerTwo + " has dealt the " + playerTwoDeck.dealCardFromDeck());
+                System.out.println(playerOne + " has dealt the " + playerOneCard);
+                System.out.println(playerTwo + " has dealt the " + playerTwoCard);
                 if (playerOneCard.getRank() > playerTwoCard.getRank()) {
                     playerOneDeck.addCardToDeck(playerOneCard);
                     playerOneDeck.addCardToDeck(playerTwoCard);
                     System.out.println(playerOne + " takes all cards!");
+                    System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                    System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
 
                 } else if (playerTwoCard.getRank() > playerOneCard.getRank()) {
                     playerTwoDeck.addCardToDeck(playerOneCard);
                     playerTwoDeck.addCardToDeck(playerTwoCard);
                     System.out.println(playerTwo + " takes all cards!");
+                    System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                    System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                 } else if (playerOneCard.getRank() == playerOneCard.getRank()){
                     System.out.println("WAR!!!");
-                    playerOneDeck.dealCardFromDeck();
-                    playerOneDeck.dealCardFromDeck();
-                    playerOneDeck.dealCardFromDeck();
-                    playerOneDeck.dealCardFromDeck();
-                    playerTwoDeck.dealCardFromDeck();
-                    playerTwoDeck.dealCardFromDeck();
-                    playerTwoDeck.dealCardFromDeck();
-                    playerTwoDeck.dealCardFromDeck();
-                    if (playerOneCard.getRank() > playerTwoCard.getRank()) {
-                        playerOneDeck.addCardToDeck(playerOneCard);
-                        playerOneDeck.addCardToDeck(playerOneCard);
-                        playerOneDeck.addCardToDeck(playerOneCard);
-                        playerOneDeck.addCardToDeck(playerOneCard);
-                        playerOneDeck.addCardToDeck(playerTwoCard);
-                        playerOneDeck.addCardToDeck(playerTwoCard);
-                        playerOneDeck.addCardToDeck(playerTwoCard);
-                        playerOneDeck.addCardToDeck(playerTwoCard);
-                        System.out.println(playerOne + " takes all cards!");
-                    } else if (playerTwoCard.getRank() > playerOneCard.getRank()) {
-                        playerTwoDeck.addCardToDeck(playerOneCard);
-                        playerTwoDeck.addCardToDeck(playerOneCard);
-                        playerTwoDeck.addCardToDeck(playerOneCard);
-                        playerTwoDeck.addCardToDeck(playerOneCard);
-                        playerTwoDeck.addCardToDeck(playerTwoCard);
-                        playerTwoDeck.addCardToDeck(playerTwoCard);
-                        playerTwoDeck.addCardToDeck(playerTwoCard);
-                        playerTwoDeck.addCardToDeck(playerTwoCard);
-                        System.out.println(playerTwo + " takes all cards!");
-                    }else if (playerOneCard.getRank() == playerOneCard.getRank()){
-                        System.out.println("WAR!!!");
-                        playerOneDeck.dealCardFromDeck();
+                    while (war = true) {
+                        ArrayList<Card> warCards = new ArrayList<Card>();
+                        warCards.add(playerOneDeck.dealCardFromDeck());
+                        warCards.add(playerOneDeck.dealCardFromDeck());
+                        warCards.add(playerOneDeck.dealCardFromDeck());
+                        warCards.add(playerOneDeck.dealCardFromDeck());
+                        warCards.add(playerTwoDeck.dealCardFromDeck());
+                        warCards.add(playerTwoDeck.dealCardFromDeck());
+                        warCards.add(playerTwoDeck.dealCardFromDeck());
+                        warCards.add(playerTwoDeck.dealCardFromDeck());
+                        if (warCards.get(3).getRank() > warCards.get(7).getRank()) {
+                            playerOneDeck.addCardToDeck(playerOneCard);
+                            playerOneDeck.addCardToDeck(playerOneCard);
+                            playerOneDeck.addCardToDeck(playerOneCard);
+                            playerOneDeck.addCardToDeck(playerOneCard);
+                            playerOneDeck.addCardToDeck(playerTwoCard);
+                            playerOneDeck.addCardToDeck(playerTwoCard);
+                            playerOneDeck.addCardToDeck(playerTwoCard);
+                            playerOneDeck.addCardToDeck(playerTwoCard);
+                            System.out.println(playerOne + " takes all cards!");
+                            System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                            System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
+                            war = false;
+                        } else if (warCards.get(7).getRank() > warCards.get(3).getRank()) {
+                            playerTwoDeck.addCardToDeck(playerOneCard);
+                            playerTwoDeck.addCardToDeck(playerOneCard);
+                            playerTwoDeck.addCardToDeck(playerOneCard);
+                            playerTwoDeck.addCardToDeck(playerOneCard);
+                            playerTwoDeck.addCardToDeck(playerTwoCard);
+                            playerTwoDeck.addCardToDeck(playerTwoCard);
+                            playerTwoDeck.addCardToDeck(playerTwoCard);
+                            playerTwoDeck.addCardToDeck(playerTwoCard);
+                            System.out.println(playerTwo + " takes all cards!");
+                            System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
+                            System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
+                            war = false;
+                        }
+
                     }
 
                 }
-
             }
-        }
-    }      
+        }      
+    }
 
     /**
      * The main method is called when Java starts your program

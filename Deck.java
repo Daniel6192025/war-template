@@ -72,10 +72,7 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written
-        Card dealtCard;
-        dealtCard = cards.get(0);
-        cards.remove(0);
-        return dealtCard;
+        return this.cards.remove(this.cards.size() - 1);
     }
 
     /**
@@ -84,9 +81,7 @@ public class Deck
      */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
-        Card dealtCard = dealCardFromDeck();
-        cardToAdd = dealtCard;
-        cards.add(cardToAdd);
+        this.cards.add(cardToAdd);
     }
 
 }
