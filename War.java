@@ -24,10 +24,6 @@ public class War
         playerOneDeck = playerDeck[0];
         playerTwoDeck = playerDeck[1];
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> be75382d5097e8a8409891ecf5d922c7b6bd2122
         // ...then run the event loop
         this.runEventLoop(playerOneDeck, playerTwoDeck);
     }
@@ -60,7 +56,7 @@ public class War
                     playerOneDeck.addCardToDeck(playerOneCard);
                     playerOneDeck.addCardToDeck(playerTwoCard);
                     System.out.println(playerOne + " takes all cards!");
-<<<<<<< HEAD
+
                 } else if (playerTwoCard.getRank() > playerOneCard.getRank()) {
                     playerTwoDeck.addCardToDeck(playerOneCard);
                     playerTwoDeck.addCardToDeck(playerTwoCard);
@@ -95,18 +91,16 @@ public class War
                         playerTwoDeck.addCardToDeck(playerTwoCard);
                         playerTwoDeck.addCardToDeck(playerTwoCard);
                         System.out.println(playerTwo + " takes all cards!");
+                    }else if (playerOneCard.getRank() == playerOneCard.getRank()){
+                        System.out.println("WAR!!!");
+                        playerOneDeck.dealCardFromDeck();
                     }
-                } 
-=======
-                } else if (playerOneCard.getRank() == playerOneCard.getRank()){
-                    System.out.println("WAR!!!");
-                    playerOneDeck.dealCardFromDeck();
-                }
->>>>>>> be75382d5097e8a8409891ecf5d922c7b6bd2122
-            }
 
+                }
+
+            }
         }
-    }
+    }      
 
     /**
      * The main method is called when Java starts your program
