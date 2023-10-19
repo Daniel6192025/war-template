@@ -38,7 +38,6 @@ public class War
      */
     public void runEventLoop(Deck playerOneDeck, Deck playerTwoDeck) {
         boolean playing;
-        boolean war;
         Scanner users = new Scanner(System.in);
         System.out.println("Welcome Players!");
         System.out.println("Please Enter Your Names");
@@ -74,8 +73,9 @@ public class War
                     System.out.println(playerOne + " takes all cards!");
                     System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
                     System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
+
                     System.out.println("---------------------------------------------------------------------");
-                } else if (playerOneCard.getRank() < playerTwoCard.getRank()) {
+                }  else if (playerTwoCard.getRank() > playerOneCard.getRank()) {
                     playerTwoDeck.addCardToDeck(playerOneCard);
                     playerTwoDeck.addCardToDeck(playerTwoCard);
                     System.out.println(playerTwo + " takes all cards!");
@@ -120,7 +120,8 @@ public class War
                         System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
                         System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                         System.out.println("---------------------------------------------------------------------");
-                    }
+
+                    } 
                 }
             }
         }      
