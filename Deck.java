@@ -72,7 +72,10 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written
-        return this.cards.remove(this.cards.size() - 1);
+        if (cards.size() != 0) {
+            return this.cards.remove(this.cards.size() -1);
+        } 
+        return null;
     }
         
     
