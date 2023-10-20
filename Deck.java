@@ -73,6 +73,7 @@ public class Deck
     public Card dealCardFromDeck() {
         // To be written
         if (cards.size() != 0) {
+<<<<<<< HEAD
             Card dealtCard = cards.get(0);
             cards.remove(0);
             return dealtCard;
@@ -81,6 +82,10 @@ public class Deck
         System.out.println("The Game has ended");
         boolean playing;
         playing = false;
+=======
+            return this.cards.remove(this.cards.size() -1);
+        } 
+>>>>>>> 71303b7716666b5b9a070cf4e91d25116cf8a40d
         return null;
     }
         
