@@ -72,7 +72,16 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written
-        return this.cards.remove(this.cards.size() - 1);
+        if (cards.size() != 0) {
+            Card dealtCard = cards.get(0);
+            cards.remove(0);
+            return dealtCard;
+        } 
+        System.out.println("Sorry, no more cards in deck");
+        System.out.println("The Game has ended");
+        boolean playing;
+        playing = false;
+        return null;
     }
         
     
@@ -83,7 +92,7 @@ public class Deck
      */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
-        this.cards.add(0, cardToAdd);
+        this.cards.add(cardToAdd);
     }
     
 
