@@ -84,31 +84,20 @@ public class War
                     System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                     ArrayList<Card> warCards = new ArrayList<Card>();
                     warCards.add(playerOneCard);
-                    warCards.add(playerOneDeck.dealCardFromDeck());
-                    warCards.add(playerOneDeck.dealCardFromDeck());
-                    warCards.add(playerOneDeck.dealCardFromDeck());
-                    warCards.add(playerOneDeck.dealCardFromDeck());
                     warCards.add(playerTwoCard);
-                    warCards.add(playerTwoDeck.dealCardFromDeck());
-                    warCards.add(playerTwoDeck.dealCardFromDeck());
-                    warCards.add(playerTwoDeck.dealCardFromDeck());
-                    warCards.add(playerTwoDeck.dealCardFromDeck());
-                    String warP1Face = warCards.get(4).getFace();
-                    String warP1Suit = warCards.get(4).getSuit();
+                    for (int i = 0; i < 4; i++) {
+                        warCards.add(playerOneDeck.dealCardFromDeck());
+                        warCards.add(playerTwoDeck.dealCardFromDeck());
+                    }
+                    String warP1Face = warCards.get(8).getFace();
+                    String warP1Suit = warCards.get(8).getSuit();
                     String warP2Face = warCards.get(9).getFace();
                     String warP2Suit = warCards.get(9).getSuit();
                     System.out.println("---------------------------------------------------------------------");
-                    if (warCards.get(4).getRank() > warCards.get(9).getRank()) {
-                        playerOneDeck.addCardToDeck(warCards.get(0));
-                        playerOneDeck.addCardToDeck(warCards.get(1));
-                        playerOneDeck.addCardToDeck(warCards.get(2));
-                        playerOneDeck.addCardToDeck(warCards.get(3));
-                        playerOneDeck.addCardToDeck(warCards.get(4));
-                        playerOneDeck.addCardToDeck(warCards.get(5));
-                        playerOneDeck.addCardToDeck(warCards.get(6));
-                        playerOneDeck.addCardToDeck(warCards.get(7));
-                        playerOneDeck.addCardToDeck(warCards.get(8));
-                        playerOneDeck.addCardToDeck(warCards.get(9));
+                    if (warCards.get(8).getRank() > warCards.get(9).getRank()) {
+                        for (int i = 0; i < warCards.size(); i++) {
+                            playerOneDeck.addCardToDeck(warCards.get(i));
+                        }
                         System.out.println(playerOne + " has dealt the " + warP1Face + " of " + warP1Suit);
                         System.out.println(playerTwo + " has dealt the " + warP2Face + " of " + warP2Suit);
                         System.out.println(playerOne + " takes all cards!");
@@ -116,17 +105,10 @@ public class War
                         System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
                         System.out.println("Rounds: " + roundCount);
                         System.out.println("---------------------------------------------------------------------");
-                    } else if (warCards.get(9).getRank() > warCards.get(4).getRank()){ 
-                        playerTwoDeck.addCardToDeck(warCards.get(0));
-                        playerTwoDeck.addCardToDeck(warCards.get(1));
-                        playerTwoDeck.addCardToDeck(warCards.get(2));
-                        playerTwoDeck.addCardToDeck(warCards.get(3));
-                        playerTwoDeck.addCardToDeck(warCards.get(4));
-                        playerTwoDeck.addCardToDeck(warCards.get(5));
-                        playerTwoDeck.addCardToDeck(warCards.get(6));
-                        playerTwoDeck.addCardToDeck(warCards.get(7));
-                        playerTwoDeck.addCardToDeck(warCards.get(8));
-                        playerTwoDeck.addCardToDeck(warCards.get(9));
+                    } else if (warCards.get(9).getRank() > warCards.get(8).getRank()){ 
+                        for (int i = 0; i < warCards.size(); i++) {
+                            playerTwoDeck.addCardToDeck(warCards.get(i));
+                        }
                         System.out.println(playerOne + " has dealt the " + warP1Face + " of " + warP1Suit);
                         System.out.println(playerTwo + " has dealt the " + warP2Face + " of " + warP2Suit);
                         System.out.println(playerTwo + " takes all cards!");
@@ -148,8 +130,9 @@ public class War
                         System.out.println("Rounds: " + roundCount);
 
                     }
-                }      
-            } 
+
+                }
+            }      
             if (roundCount == 300) {
                 System.out.println("the game has ended!");
                 if (playerOneDeck.getDeckSize() > playerTwoDeck.getDeckSize()) {
