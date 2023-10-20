@@ -35,10 +35,6 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop(Deck playerOneDeck, Deck playerTwoDeck) {
-<<<<<<< HEAD
-=======
-        boolean playing;
->>>>>>> 71303b7716666b5b9a070cf4e91d25116cf8a40d
         int roundCount = 0;
         Scanner users = new Scanner(System.in);
         System.out.println("Welcome Players!");
@@ -50,48 +46,9 @@ public class War
         System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
         System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
         System.out.println("---------------------------------------------------------------------");
-<<<<<<< HEAD
 
         while (roundCount < 300) {
             if (playerOneDeck.getDeckSize() > 1 && playerTwoDeck.getDeckSize() > 1){
-=======
-        while (playing = true) {
-            
-             if (playerTwoDeck.getDeckSize() == 52) {
-                System.out.println(playerTwo + " has won!");
-                System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
-                System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize()); 
-                System.out.println("Rounds: " + roundCount);
-                playing = false;
-            } else if (playerOneDeck.getDeckSize() == 52) {
-                System.out.println(playerOne + " has won!");
-                System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
-                System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
-                System.out.println("Rounds: " + roundCount);
-                playing = false;
-            } else if (roundCount == 300) {
-                playing = false;
-                if (playerOneDeck.getDeckSize() > playerTwoDeck.getDeckSize()) {
-                    System.out.println(playerTwo + " has won!");
-                    System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
-                    System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize()); 
-                    System.out.println("Rounds: " + roundCount);
-                    System.out.println("---------------------------------------------------------------------");
-                } else if (playerTwoDeck.getDeckSize() > playerOneDeck.getDeckSize()) {
-                    System.out.println(playerTwo + " has won!");
-                    System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
-                    System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize()); 
-                    System.out.println("Rounds: " + roundCount);
-                    System.out.println("---------------------------------------------------------------------");
-                } else if (playerTwoDeck.getDeckSize() == playerOneDeck.getDeckSize()){
-                    System.out.println("its a tie!");
-                    System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
-                    System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize()); 
-                    System.out.println("Rounds: " + roundCount);
-                    System.out.println("---------------------------------------------------------------------");
-                }
-            } else {
->>>>>>> 71303b7716666b5b9a070cf4e91d25116cf8a40d
                 roundCount++;
                 Card playerOneCard = playerOneDeck.dealCardFromDeck();
                 Card playerTwoCard = playerTwoDeck.dealCardFromDeck();
@@ -150,15 +107,10 @@ public class War
                         playerOneDeck.addCardToDeck(warCards.get(5));
                         playerOneDeck.addCardToDeck(warCards.get(6));
                         playerOneDeck.addCardToDeck(warCards.get(7));
-<<<<<<< HEAD
                         playerOneDeck.addCardToDeck(warCards.get(8));
                         playerOneDeck.addCardToDeck(warCards.get(9));
                         System.out.println(playerOne + " has dealt the " + warP1Face + " of " + warP1Suit);
                         System.out.println(playerTwo + " has dealt the " + warP2Face + " of " + warP2Suit);
-=======
-                        System.out.println(playerOne + " has dealt the " + warCards.get(3));
-                        System.out.println(playerTwo + " has dealt the " + warCards.get(7));
->>>>>>> 71303b7716666b5b9a070cf4e91d25116cf8a40d
                         System.out.println(playerOne + " takes all cards!");
                         System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
                         System.out.println(playerTwo + ": " + playerTwoDeck.getDeckSize());
@@ -173,15 +125,10 @@ public class War
                         playerTwoDeck.addCardToDeck(warCards.get(5));
                         playerTwoDeck.addCardToDeck(warCards.get(6));
                         playerTwoDeck.addCardToDeck(warCards.get(7));
-<<<<<<< HEAD
                         playerTwoDeck.addCardToDeck(warCards.get(8));
                         playerTwoDeck.addCardToDeck(warCards.get(9));
                         System.out.println(playerOne + " has dealt the " + warP1Face + " of " + warP1Suit);
                         System.out.println(playerTwo + " has dealt the " + warP2Face + " of " + warP2Suit);
-=======
-                        System.out.println(playerOne + " has dealt the " + warCards.get(3));
-                        System.out.println(playerTwo + " has dealt the " + warCards.get(7));
->>>>>>> 71303b7716666b5b9a070cf4e91d25116cf8a40d
                         System.out.println(playerTwo + " takes all cards!");
                         System.out.println("Rounds: " + roundCount);
                         System.out.println(playerOne + ": " + playerOneDeck.getDeckSize());
